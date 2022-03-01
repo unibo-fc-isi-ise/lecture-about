@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% ISE Lab -- Topic
+% ISE Lab -- About the Lab
 % Giovanni Ciatto
 % Alma Mater Studiorum - Università di Bologna
 % mailto:giovanni.ciatto@unibo.it
@@ -12,9 +12,9 @@
 \usepackage{ise-lab-common}
 \usepackage{ise-lab-about}
 % version
-\newcommand{\versionmajor}{0}
-\newcommand{\versionminor}{1}
-\newcommand{\versionpatch}{1-dev}
+\newcommand{\versionmajor}{1}
+\newcommand{\versionminor}{0}
+\newcommand{\versionpatch}{0-dev}
 \newcommand{\version}{\versionmajor.\versionminor.\versionpatch}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \title[\currentLab{} -- About]{About the Lab}
@@ -25,7 +25,7 @@
 %
 \institute[\disiShort, \uniboShort]{\disi{} (\disiShort)\\\unibo}
 %
-\date[A.Y. \academicYear{} (v.\ \version)]{Academic Year \academicYear{}\\(version \version)}
+\date[A.Y. \academicYearShort{} (v.\ \version)]{Academic Year \academicYear{}\\(version \version)}
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
@@ -86,15 +86,737 @@
 %/////////
 
 %===============================================================================
-\section{Vision}
+\section{Recall Fundamental Notions}
 %===============================================================================
 
 %/////////
-\begin{frame}[c]{Recall Fundamental Notions}
-TBD
+\begin{frame}[c]{Disclaimer}
+%
+\begin{itemize}
+	\item We recall a number of notions about IS
+	%
+	\begin{itemize}
+		\item[eg] agents, goals, autonomy, intelligence, the environment, etc. 
+	\end{itemize}
+
+	\item Actual definitions are provided by Prof. Omicini in his module
+	
+	\item Here we just recall the nomenclature and provide insights
+	%
+	\begin{itemize}
+		\item following the purpose of explaining the rationale of our module
+	\end{itemize}
+\end{itemize}
+%
 \end{frame}
 %/////////
 
+%/////////
+\begin{frame}[c]{Agent}
+%
+\begin{block}{Insight}
+	Any entity capable of \alert{acting}\footnote{``acting'' = ``affecting the environment, and (possibly) the agents therein contained''}
+	%
+	\begin{itemize}
+		\item while being situated into some \alert{environment}
+		%
+		\begin{itemize}
+			\item which can be both \alert{perceived} and \alert{affected}
+		\end{itemize}
+
+		\item possibly, along with other agents
+		%
+		\begin{itemize}
+			\item with which \alert{interaction} is possible
+		\end{itemize}
+	\end{itemize}
+\end{block}
+%
+\begin{exampleblock}{Examples of agents}
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item human beings
+			\item OS processes
+			\item OS threads
+			\item logic solvers
+			\item robots
+			\item BDI agents
+		\end{itemize}
+	\end{multicols}
+\end{exampleblock}
+%
+\end{frame}
+%/////////
+
+%/////////
+\begin{frame}[c]{Goal}
+%
+\begin{block}{Insight}
+	A (possibly partial) description of the state of the world\footnote{``world'' $\approx$ the environment + other agents} to be reached
+	%
+	\begin{itemize}
+		\item either by a single agent (\emph{individual} goal)
+		\item or by a multi-agent system (\emph{collective} goal)
+	\end{itemize}
+\end{block}
+%
+\begin{exampleblock}{Examples of goals}
+	\begin{itemize}
+		\item vacuum robot $\rightarrow$ ``the floor should be clean''
+		\item autonomous car $\rightarrow$ ``reach destination X''
+		\item virtual personal assistant $\rightarrow$ ``reminder of meeting, 15 minutes before its start''
+	\end{itemize}
+\end{exampleblock}
+%
+\end{frame}
+%/////////
+
+%/////////
+\begin{frame}[c]{Autonomy (of Agents)}
+%
+\begin{block}{Insight}
+	Agents are \alert{autonomous} when they encapsulate (i.e. control) the criterion
+	%
+	\begin{itemize}
+		\item by which they select which goals to pursue 
+		%
+		\begin{itemize}
+			\item (\emph{motivational} autonomy)
+		\end{itemize}
+		\item or by which they choose which action to do to while pursuing a goal 
+		%
+		\begin{itemize}
+			\item (\emph{executive} autonomy)
+		\end{itemize}
+	\end{itemize}
+\end{block}
+%
+\begin{exampleblock}{Examples of autonomous agents}
+	\begin{itemize}
+		\item human agents are autonomous
+		\item software agents may be more or less autonomous 
+		%
+		\begin{itemize}
+			\item depending on how they have been programmed
+		\end{itemize}
+	\end{itemize}
+\end{exampleblock}
+%
+\end{frame}
+%/////////
+
+%/////////
+\begin{frame}[c,allowframebreaks]{Intelligence (of Agents)}
+%
+\begin{block}{Insight}
+	Agents are \alert{intelligent} when they have \alert{cognitive capabilities}, and they know when/how to use them to pursue their goal(s)
+\end{block}
+%
+\begin{exampleblock}{Examples of \textbf{cognitive capabilities}}\small
+	\begin{itemize}
+		\item \alert{perceiving} stimuli and \alert{recognise} abstractions on top of them
+		\item \alert{representing knowledge} (e.g. perceptions, abstractions, goals, actions, etc) and \alert{memorising} it for later re-use
+		\item \alert{learning} from the experience (i.e. generalise the gathered knowledge)
+		\item \alert{planning} courses of action to pursue goals
+		\item \alert{reasoning} about knowledge (to \emph{deduce} implicit knowledge, to \emph{induce} new knowledge, to \emph{abduce} hypotheses)
+		\item \alert{interact} with other agents to exchange information (goals, knowledge, plans)
+		\item etc.
+	\end{itemize}
+\end{exampleblock}
+%
+\begin{exampleblock}{Examples of intelligent agents}
+	\begin{itemize}
+		\item human agents behave intelligently (most of the times)
+		\item software agents require cognitive capabilities, to behave intelligently
+		%
+		\begin{itemize}
+			\item plus some criterion to decide when and how to use them
+		\end{itemize}
+	\end{itemize}
+\end{exampleblock}
+%
+\framebreak
+%
+\begin{alertblock}{Cognitive capabilities $\nRightarrow$ Intelligence}
+	Cognitive behaviours may or may not be considered as intelligent depending on the \alert{context} they are applied into, and on the \alert{observer}
+\end{alertblock}
+%
+\begin{exampleblock}{Examples of intelligent agents}
+	\begin{itemize}
+		\item agent stepping through the window at ground floor
+		\item agent stepping through the window at $N^{th}$ floor
+	\end{itemize}
+\end{exampleblock}
+%
+\end{frame}
+%/////////
+
+%/////////
+\begin{frame}[c]{Environment}
+%
+\begin{block}{Insight}
+	The space where agents live and (inter)act. A.k.a. what is \emph{external} w.r.t. agents.
+	%
+	\begin{itemize}
+		\item enables and constraints agents' \alert{interaction}, \alert{perception}, and \alert{actuation}
+	\end{itemize}
+\end{block}
+%
+\begin{exampleblock}{Examples of environments}
+	\begin{itemize}
+		\item human beings $\rightarrow$ physical world / social media / \ldots
+		\item Roomba $\rightarrow$ a house and its floor
+		\item chat bot $\rightarrow$ chat groups
+		\item autonomous car $\rightarrow$ the road
+		\item OS process/thread $\rightarrow$ file system + network + environment variables + I/O
+	\end{itemize}
+\end{exampleblock}
+%
+\end{frame}
+%/////////
+
+%/////////
+\begin{frame}[c]{Perception}
+%
+\begin{block}{Insight}
+	The operation by which agents gather information from the environment
+	%
+	\begin{itemize}
+		\item agents may then \alert{represent}, \alert{memorise}, and \alert{process} perceived information
+	\end{itemize}
+\end{block}
+%
+\begin{exampleblock}{Examples of perception}
+	\begin{itemize}
+		\item human beings $\rightarrow$ 5 sense + introspection + proprioception 
+		\item robots $\rightarrow$ input sensors providing raw measurements (cameras, lisars, etc.)
+		\item chat bot $\rightarrow$ chat history
+		\item OS processes/threads $\rightarrow$ stdin + other input files, environment variables, system clock, network channels, serial ports, etc.
+	\end{itemize}
+\end{exampleblock}
+%
+\end{frame}
+%/////////
+
+%/////////
+\begin{frame}[c]{Actuation}
+%
+\begin{block}{Insight}
+	The operation by which agents affect the environment
+	%
+	\begin{itemize}
+		\item agents may be provided with number of elementary actions
+		%
+		\begin{itemize}
+			\item or be capable of learning them along the way
+		\end{itemize}
+		\item to be combined in infinitely many ways
+	\end{itemize}
+\end{block}
+%
+\begin{exampleblock}{Examples of actuation}
+	\begin{itemize}
+		\item human beings $\rightarrow$ hands, feets, virtually any limb of our bodies, speech
+		\item robots $\rightarrow$ actuators (wheels, arms, leds, etc.) 
+		\item chat bot $\rightarrow$ sending messages
+		\item OS processes/threads $\rightarrow$ stdout + other output files, environment variables, network channels, serial ports, etc.
+	\end{itemize}
+\end{exampleblock}
+%
+\end{frame}
+%/////////
+
+%/////////
+\begin{frame}[c]{Interaction}
+%
+\begin{block}{Insight}
+	Where agents affect (and are affected by) each others
+	%
+	\begin{itemize}
+		\item may involve both perception and actuation
+		\item does not strictly imply \emph{communication}
+	\end{itemize}
+\end{block}
+%
+\begin{exampleblock}{Examples of actuation}
+	\begin{itemize}
+		\item human beings $\rightarrow$ speech, mails, chats, non-verbal communication, etc.
+		\item robots $\rightarrow$ stigmergy, mutual perception, \ldots
+		\item chat bot $\rightarrow$ messages with buttons
+		\item OS processes/threads $\rightarrow$ message passing, tuple spaces/centres, etc.
+	\end{itemize}
+\end{exampleblock}
+%
+\end{frame}
+%/////////
+
+%===============================================================================
+\section{About the Lab}
+%===============================================================================
+
+%/////////
+\begin{frame}[c,allowframebreaks]{Fundamental Mechanisms of Intelligent Systems}
+%
+\begin{enumerate}
+	\item Knowledge representation 
+	%
+	\begin{itemize}
+		\item How is information represented to favour memorisation and processing
+	\end{itemize}
+	%
+	\item Inference 
+	%
+	\begin{itemize}
+		\item How novel/explicit knowledge is attained from prior/implicit knowledge
+	\end{itemize}
+	%
+	\item Perception / actuation 
+	%
+	\begin{itemize}
+		\item How information exchange with the environment occurs
+	\end{itemize}
+	%
+	\item Planning 
+	%
+	\begin{itemize}
+		\item How courses of actions (directed towards some goal) are computed
+	\end{itemize}
+	%
+	\item Learning 
+	%
+	\begin{itemize}
+		\item How experience is transformed into knowledge
+	\end{itemize}
+	%
+	\item Deliberation 
+	%
+	\begin{itemize}
+		\item Where all such aspects are tied together
+	\end{itemize}
+	%
+	\item Environment and artefacts 
+	%
+	\begin{itemize}
+		\item Where (inter)actions are coordinated
+	\end{itemize}
+	%
+\end{enumerate}
+%
+\framebreak
+%
+\begin{block}{Special guest: \textbf{Explanation}}
+	How knoweldge is \alert{transferred} from an agent to another
+	%
+	\begin{itemize}
+		\item software to human agent $\leftarrow$ symbolic knowledge \alert{extraction}
+		\item human to software agent $\leftarrow$ symbolic knowledge \alert{injection}
+	\end{itemize}
+\end{block}
+%
+\begin{block}{Special guest: \textbf{Argumentation}}
+	Letting agents reach shared agreements by \alert{arguing}
+	%
+	\begin{itemize}
+		\item reason about how arguments attack each other
+		\item reason about when to present an argument to the opponent(s)
+	\end{itemize}
+\end{block}
+%
+\end{frame}
+%/////////
+
+%/////////
+\begin{frame}[c,allowframebreaks]{Orthogonal topics}
+
+Topics necessary to understand two or more mechanisms:
+
+\begin{block}{Data science (a.k.a. machine learning, a.k.a. data mining)}
+	The use of statistics and algorithms to extract knowledge out of data
+	%
+	\begin{itemize}
+		\item necessary or useful for: 
+		\vspace{-10pt}
+		\begin{multicols}{2}
+			\begin{itemize}
+				\item perception
+				\item learning
+				\item inference
+				\item processing
+			\end{itemize}
+		\end{multicols}
+	\end{itemize}
+\end{block}
+%
+\begin{itemize}
+	\item we assume students already have a background on this topic
+	%
+	\begin{itemize}
+		\item yet, most relevant aspects may be recalled when needed
+	\end{itemize}
+\end{itemize}
+
+\begin{block}{Computational Logic}
+	The use of logic to \emph{perform} or \emph{reason about} computation
+	%
+	\begin{itemize}
+		\item necessary or useful for: 
+		\vspace{-10pt}
+		\begin{multicols}{2}
+			\begin{itemize}
+				\item knowledge representation
+				\item reasoning
+				\item planning
+				\item learning
+				\item perception
+				\item deliberation
+			\end{itemize}
+		\end{multicols}
+	\end{itemize}
+\end{block}
+%
+\begin{itemize}
+	\item we provide background on this topic, along the course
+\end{itemize}
+
+\end{frame}
+%/////////
+
+\subsection{Required Technologies and Skills}
+
+\begin{frame}[c,allowframebreaks]{Required Technologies and Skills}
+
+\begin{block}{Legend}
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item[$\checkmark$] we assume you know this topic
+			\item[$\rightarrow$] we teach this topic
+		\end{itemize}
+	\end{multicols}
+\end{block}
+
+\framebreak
+
+\begin{alertblock}{Required}
+	\begin{itemize}
+		\item[$\checkmark$] distributed version control systems (DVCS) \& \alert{Git}
+		%
+		\begin{itemize}
+			\item useful resources: \ccite{pianiniDvcs, proGit}
+		\end{itemize}
+
+		\vfill
+
+		\item[$\checkmark$] build automation tools and \alert{Gradle}
+		%
+		\begin{itemize}
+			\item useful resources: \ccite{pianiniBuildAutomation, gradleUserGuide}
+		\end{itemize}
+		
+		\vfill
+
+		\item[$\checkmark$] OO programming on the JVM (11+)
+		%
+		\begin{itemize}
+			\item useful resources: \ccite{} %ProgrammizJavaIO,Naftalin2006,Bloch2008, JavaCollectionsCheatsheets,Warburton2014, Lea1999,Oaks2004, Garg2004,Goetz2006}
+			\item admissible languages: Java, \alert{Kotlin}
+		\end{itemize}
+
+		\vfill
+
+		\item[$\rightarrow$] logic programming in Prolog
+		%
+		\begin{itemize}
+			\item useful resources: \ccite{}
+			\item admissible implementations: \alert{\twopkt{}}, SWI-Prolog
+		\end{itemize}
+
+	\end{itemize}
+\end{alertblock}
+
+\begin{exampleblock}{Useful}
+	\begin{itemize}
+		\item[$\checkmark$] basic shell scripting and \alert{Bash}
+		\item[$\checkmark$] basic IDE configuration and usage (\alert{Eclipse}, \alert{IntelliJ Idea}, or whatever)
+		%
+		\begin{itemize}
+			\item choice, configuration, and usage of your environment is up to you
+		\end{itemize} 
+		\item[$\checkmark$] programming in Python (3.9.x)
+		%
+		\begin{itemize}
+			\item useful resources: \ccite{}
+			\item useful libraries: SciKit-learn, 2ppy, Psyke
+			\item useful tools: Pip, Virtualenv, Pyenv
+		\end{itemize}
+	\end{itemize}
+\end{exampleblock}
+
+\end{frame}
+
+\section{Conventions and Suggestions}
+
+\begin{frame}[c,allowframebreaks]{About Lab Lectures}
+
+    \begin{itemize}
+
+        \item Lab lectures may involve one or more practical exercises
+        %
+        \begin{itemize}
+            \item commonly started during the lab lecture
+            \item rarely completed within the same lecture
+            %
+			\begin{itemize}
+				\item[!] when this is the case, you are supposed to \emph{autonomously} complete the exercise(s), \emph{eventually}
+			\end{itemize}
+        \end{itemize}
+
+        \bigskip
+
+        \item You are supposed to learn something, not just solving puzzles
+        %
+        \begin{itemize}
+            \item no deadline, no mark
+            \item[$\rightarrow$] take your time
+            \item[$\rightarrow$] ask for help on the forum
+            \item[$\rightarrow$] compare/discuss with your colleagues
+        \end{itemize}
+
+        \bigskip
+
+        \item \alert{All} exercises are \alert{optional}
+        %
+        \begin{itemize}
+			\item `optional' = `their completion is not explictly checked before the exam'
+            \item solutions and comments are provided \emph{upon request}
+        \end{itemize}
+
+        \framebreak
+
+        \item Yet, of Lab-related topics provide useful background knowledge for your project activities
+
+        \bigskip
+
+        \item Exercises are provided as GitLab repositories hosting software projects
+        %
+        \begin{itemize}
+			\item build automation tools are provided to guarantee reproducibility
+            \item you need a GitLab account $\rightarrow$ follow the instructions described on slide \ref{slide:submissions}
+        \end{itemize}
+
+        \bigskip
+
+        \item Slides are provided as \emph{versioned} PDF, through GitHub releases
+        %
+        \begin{itemize}
+            \item[eg] \uurl{https://github.com/pikalab-unibo/ise-lab-about/releases}
+        \end{itemize}
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[c,allowframebreaks]{About Exercises Submissions}
+\label{slide:submissions}
+
+    \begin{itemize}
+		\item Submission are optional!
+		%
+        \begin{itemize}
+            \item yet comments and solutions are \emph{only} provided via GitLab
+            \item please avoid snippets or zips containing code
+        \end{itemize}
+
+		\bigskip
+
+        \item Your code should be pushed on the same GitLab repository exercises have been cloned from, \alert{through Git}
+
+        \bigskip
+
+        \item To this end, you should create a GitLab account %, following instructions provided in \cite{envSetup}:
+        %
+        \begin{itemize}
+            \item possibly, using your institutional credentials \texttt{\alert{name.surnameN}@studio.unibo.it}
+            \item possibly, using \texttt{\alert{name.surnameN}} as username
+        \end{itemize}
+
+        \framebreak
+
+        \item After that, you are supposed to request access on the \courseAcronym{} \academicYearShort{} GitLab group:
+        %
+        \begin{itemize}
+            \item \url{\courseGroup}
+        \end{itemize}
+
+        \bigskip
+
+        \item Submissions should be pushed on a branch named \alert{\texttt{submissions/\textit{name.surnameN}}} %, as described in \cite{envSetup}
+        %
+        \begin{itemize}
+            \item one solution per student ($\implies$ no group submissions)
+            \item solutions provided elsewhere will be ignored
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[c]{About Fora}
+    \begin{itemize}
+		\item Use the \emph{general} forum as much as possible
+		\\
+		\uurl{\generalForum}
+		%
+		\begin{itemize}
+			\item don't be shy :)
+			\item ask for help if you need it
+			\item ask why if you are curious
+			\item compare you solutions
+			\item be critical and provide suggestions if you feel so
+		\end{itemize}
+
+		\bigskip
+
+		\item Requests for advices, comments, solutions, as well as critics or issues should be reported on the \emph{general} forum \alert{only}
+		%
+		\begin{itemize}
+			\item if sent by email, you will be requested to post them on the general forum
+		\end{itemize}
+
+		\bigskip
+
+		\item Privacy-sensitive topics can and should be discussed via email
+	\end{itemize}
+\end{frame}
+
+\section{The Final Project}
+
+\begin{frame}[c]{About Projects}
+    \begin{itemize}
+        \item detailed rules here
+		\\
+        \uurl{\projectRules}
+
+        \vfill
+
+        \item workflow overview
+        %
+        \begin{enumerate}
+            \item \alert{choose} a project or \alert{propose} one
+            \item reserve your project on the \href{\projectsForum}{Projects forum}
+            \item submit an \alert{initial report}, describing your own requirements
+            \item receive a Git repository for tracking the development of your artefacts
+            \item develop your projects
+            \item write the \alert{final report}
+            \item submit your project's \alert{report} on the \href{\projectsForum}{Projects forum}
+            %
+			\begin{itemize}
+				\item push your code on the provided Git repository
+			\end{itemize}
+            \item set up an appointment for discussing your project
+        \end{enumerate}
+
+        \vfill
+
+        \item group projects are allowed (max 4 persons)
+        %
+        \begin{itemize}
+            \item rule of thumb: $\sim90$ working hours per person per project
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[c, allowframebreaks]{Sorts of Projects}
+
+    \begin{block}{Classic \courseAcronym{} Project}
+        Design and develop a software artifact leveraging upon MAS or LP
+        %
+        \begin{itemize}
+            \item[eg] simulation, application, video-game, etc.
+            \item Workflow:
+            \vspace{-10pt}
+            \begin{multicols}{2}
+				\begin{enumerate}
+					\item Sketch the idea
+					\item Design
+					\item Write \alert{automated} tests
+					\item Implement
+					\item Pack / deploy for reusability
+				\end{enumerate}
+			\end{multicols}
+            \item Previous projects in this category: \ccite{Sd2021ProjectGuessR,Sd2021ProjectCAHu}
+            \item[!] Innovation is limited here, thus we expect
+            %
+            \begin{itemize}
+                \item design to be optimal
+				\item implementation to be complete
+				\item testing to be pervasive
+            \end{itemize}
+        \end{itemize}
+    \end{block}
+
+    \begin{block}{Advanced \courseAcronym{} Project}
+        Provide an implementation for some \alert{scientifically-relevant} agent or logic framework \alert{from the literature}
+        %
+        \begin{itemize}
+            \item[eg] agent-based simulation/programming tool, logic reasoner, etc. 
+            \item Workflow:
+            %
+            \begin{enumerate}
+				\item Select \& study a paper form the literature
+				\item Design your implementation for the proposed contribution
+				\item Write \alert{automated} tests
+				\item Prototype an implementation
+				\item Pack / deploy for a demo
+			\end{enumerate}
+            \item Previous projects in this category: \ccite{Sd2021ProjectZyzzyva}
+            \item[!] Innovation is high here, thus we
+            %
+            \begin{itemize}
+                \item we mostly care about the proposed design
+                \item implementation can be sub-optimal or embryonic
+            \end{itemize}
+        \end{itemize}
+    \end{block}
+
+    \begin{block}{Research \courseAcronym{} Project}
+        Help us extending some research product of ours with some feature
+        %
+        \begin{itemize}
+            \item[eg] TuSoW\ccite{tusow-icccn2019}, LPaaS\ccite{lpaas-bdcc2}, tuProlog\ccite{2pkt-softwarex}
+            \item Workflow:
+            %
+            \begin{enumerate}
+                \item Study the target research product
+                \item Collect requirements by interacting with us
+                \item Co-design the feature by interacting with us
+                \item Implement \& test the feature
+            \end{enumerate}
+            \item Previous projects in this category: \ccite{Sd2021ProjectTusowCSharpInterface}
+            \item[!] Innovation is high here, but the activity is very constrained
+            %
+            \begin{itemize}
+                \item design and implementation must be expert-level
+                \item testing, and continuos integration are mandatory
+                \item you will be considered part of development team
+                \item you will be part of the author list of any subsequent paper
+            \end{itemize}
+        \end{itemize}
+    \end{block}
+
+    \begin{block}{Systematic Literature Review (SLR)}
+        Produce a scientific report on a particular research goal of choice (related to the topics of the course)
+        %
+        \begin{itemize}
+            \item Workflow will be explained by Prof. Omicini via an ad-hoc lecture
+            \item Previous projects in this category: \ccite{Sd2021ProjectEtcd}
+            \item[!] Focus here is on bibliographic exploration(s)
+            %
+            \begin{itemize}
+                \item reproducibility of the exploration is essential
+                \item soundness and clearness of conclusions is of paramount importance
+                \item may easily become worth of actual publication!
+            \end{itemize}
+        \end{itemize}
+    \end{block}
+\end{frame}
 
 %===============================================================================
 \section*{}
