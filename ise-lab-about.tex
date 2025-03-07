@@ -12,9 +12,9 @@
 \usepackage{ise-lab-common}
 \usepackage{ise-lab-about}
 % version
-\newcommand{\versionmajor}{1}
-\newcommand{\versionminor}{1}
-\newcommand{\versionpatch}{1}
+\newcommand{\versionmajor}{2}
+\newcommand{\versionminor}{0}
+\newcommand{\versionpatch}{0}
 \newcommand{\version}{\versionmajor.\versionminor.\versionpatch}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \title[\currentLab{} -- About]{About the Lab}
@@ -608,7 +608,7 @@ Topics necessary to understand two or more mechanisms:
         \item Slides are provided as \emph{versioned} PDF, through GitHub releases
         %
         \begin{itemize}
-            \item[eg] \uurl{https://github.com/pikalab-unibo/ise-lab-about/releases}
+            \item[eg] \uurl{https://github.com/unibo-fc-isi-ise/lecture-about/releases}
         \end{itemize}
 
     \end{itemize}
@@ -632,22 +632,15 @@ Topics necessary to understand two or more mechanisms:
 
         \medskip
 
-        \item To this end, you are supposed to request access on the \courseAcronym{} \academicYearShort{} GitLab group:
+        \item To this end, you are supposed to request access on the course's GitHub organization:
         %
         \begin{itemize}
             \item \url{\courseGroup}
         \end{itemize}
-		%
-		(you can log-in via your institutional credentials)
 
         \medskip
 
-        \item Submissions should be pushed on a branch named \alert{\texttt{submissions/\textit{name.surnameN}}} %, as described in \cite{envSetup}
-        %
-        \begin{itemize}
-            \item one solution per student ($\implies$ no group submissions)
-            \item solutions provided elsewhere will be ignored
-        \end{itemize}
+        \item To submit your solution: fork the repository, push your code, and open a pull request named \texttt{[ISE \academicYearShort] Name Surname}
     \end{itemize}
 \end{frame}
 
@@ -683,26 +676,22 @@ Topics necessary to understand two or more mechanisms:
 
 \begin{frame}[c]{About Projects}
     \begin{itemize}
-        \item detailed rules here
-		\\
-        \uurl{\projectRules}
+        % \item detailed rules here
+		% \\
+        % \uurl{\projectRules}
 
-        \vfill
+        % \vfill
 
         \item workflow overview
         %
         \begin{enumerate}
             \item \alert{choose} a project or \alert{propose} one
-            \item reserve your project on the \href{\projectsForum}{Projects forum}
-            \item submit an \alert{initial report}, describing your own requirements
-            \item receive a Git repository for tracking the development of your artefacts
+            \item open a post on the \href{\projectsForum}{Projects forum} to reserve / propose your project
+            \item wait for approval
+            \item create a working Git repository, and post its URL on the forum
             \item develop your projects
             \item write the \alert{final report}
-            \item submit your project's \alert{report} on the \href{\projectsForum}{Projects forum}
-            %
-			\begin{itemize}
-				\item push your code on the provided Git repository
-			\end{itemize}
+            \item submit your project's \alert{report}'s PDF on the \href{\projectsForum}{Projects forum}
             \item set up an appointment for discussing your project
         \end{enumerate}
 
