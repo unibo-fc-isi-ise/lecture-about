@@ -14,7 +14,7 @@
 % version
 \newcommand{\versionmajor}{2}
 \newcommand{\versionminor}{0}
-\newcommand{\versionpatch}{0}
+\newcommand{\versionpatch}{1}
 \newcommand{\version}{\versionmajor.\versionminor.\versionpatch}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \title[\currentLab{} -- About]{About the Lab}
@@ -514,7 +514,7 @@ Topics necessary to understand two or more mechanisms:
 
 		\vfill
 
-		\item[$\checkmark$] OO programming on the JVM (11+)
+		\item[$\checkmark$] OO programming on the JVM (17+)
 		%
 		\begin{itemize}
 			\item useful resources: \ccite{ViroliOOP2122,Hunt21} %ProgrammizJavaIO,Naftalin2006,Bloch2008, JavaCollectionsCheatsheets,Warburton2014, Lea1999,Oaks2004, Garg2004,Goetz2006}
@@ -523,13 +523,20 @@ Topics necessary to understand two or more mechanisms:
 
 		\vfill
 
-		\item[$\rightarrow$] logic programming in Prolog
+		% \item[$\rightarrow$] logic programming in Prolog
+		% %
+		% \begin{itemize}
+		% 	\item useful resources: \ccite{SterlingS94,2pkt-swx16}
+		% 	\item admissible implementations: \alert{\twopkt{}}, SWI-Prolog
+		% \end{itemize}
+
+		\item[$\checkmark$] programming in Python (3.10.x)
 		%
 		\begin{itemize}
-			\item useful resources: \ccite{SterlingS94,2pkt-swx16}
-			\item admissible implementations: \alert{\twopkt{}}, SWI-Prolog
+			\item useful resources: \ccite{Shaw2017, scikit-learn, psyke-woa2021}
+			\item useful libraries: SciKit-learn, 2ppy, Psyke
+			\item useful tools: Pip, Virtualenv, Pyenv
 		\end{itemize}
-
 	\end{itemize}
 \end{alertblock}
 
@@ -540,13 +547,6 @@ Topics necessary to understand two or more mechanisms:
 		%
 		\begin{itemize}
 			\item choice, configuration, and usage of your environment is up to you
-		\end{itemize}
-		\item[$\checkmark$] programming in Python (3.9.x)
-		%
-		\begin{itemize}
-			\item useful resources: \ccite{Shaw2017, scikit-learn, psyke-woa2021}
-			\item useful libraries: SciKit-learn, 2ppy, Psyke
-			\item useful tools: Pip, Virtualenv, Pyenv
 		\end{itemize}
 	\end{itemize}
 \end{exampleblock}
@@ -734,10 +734,10 @@ Topics necessary to understand two or more mechanisms:
     \end{block}
 
     \begin{block}{Advanced \courseAcronym{} Project}
-        Provide an implementation for some \alert{scientifically-relevant} agent or logic framework \alert{from the literature}
+        Provide an implementation for some \alert{scientifically-relevant} MAS or agentic framework \alert{from the literature}
         %
         \begin{itemize}
-            \item[eg] agent-based simulation/programming tool, logic reasoner, etc.
+            \item[eg] agent-based simulation/programming tool, LLM-based agentic framework, etc.
             \item Workflow:
             %
             \begin{enumerate}
@@ -758,10 +758,11 @@ Topics necessary to understand two or more mechanisms:
     \end{block}
 
     \begin{block}{Research \courseAcronym{} Project}
-        Help us extending some research product of ours with some feature
+        Help us extending some research some research line of ours, by developing some research idea into prototype+empirical evaluation, 
+		and possibly a paper
         %
         \begin{itemize}
-            \item[eg] TuSoW\ccite{tusow-icccn2019}, LPaaS\ccite{lpaas-bdcc2}, tuProlog\ccite{2pkt-swx16}
+            \item[eg] TuSoW\ccite{tusow-icccn2019}, LPaaS\ccite{lpaas-bdcc2}, tuProlog\ccite{2pkt-swx16}, JaKtA\ccite{Baiardi2024}
             \item Workflow:
             %
             \begin{enumerate}
@@ -770,7 +771,7 @@ Topics necessary to understand two or more mechanisms:
                 \item Co-design the feature by interacting with us
                 \item Implement \& test the feature
             \end{enumerate}
-            \item Previous projects in this category: \ccite{ClausesBonarrigo,GalassiKotlinbdi}
+            \item Previous projects in this category: \ccite{ClausesBonarrigo,GalassiKotlinbdi,GenAI4BDIPlanningBattistini}
             \item[!] Innovation is high here, but the activity is very constrained
             %
             \begin{itemize}
