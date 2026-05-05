@@ -12,9 +12,9 @@
 \usepackage{ise-lab-common}
 \usepackage{ise-lab-about}
 % version
-\newcommand{\versionmajor}{2}
+\newcommand{\versionmajor}{3}
 \newcommand{\versionminor}{0}
-\newcommand{\versionpatch}{1}
+\newcommand{\versionpatch}{0}
 \newcommand{\version}{\versionmajor.\versionminor.\versionpatch}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \title[\currentLab{} -- About]{About the Lab}
@@ -44,457 +44,514 @@
 %/////////
 
 %===============================================================================
-\section{Overview}
+% \section{Overview}
+%===============================================================================
+
+% %/////////
+% \begin{frame}[c,allowframebreaks]{Workflow}
+
+% \begin{block}{We address the engineering of \textbf{intelligent systems} (IS)}
+% 	here intended as
+% 	%
+% 	\begin{itemize}
+% 		\item systems composed by one or many \emph{autonomous} and \emph{intelligent} \alert{agents}
+% 		\item situated into some \alert{environment}
+% 		\item pursuing either individual or collective \alert{goals}
+% 	\end{itemize}
+% \end{block}
+
+% \framebreak
+
+% ``Divide et impera'' approach:
+% %
+% \begin{enumerate}
+% 	\item we elicit most fundamental mechanisms of IS
+% 	\item we analyse each aspect individually, discussing:
+% 	\begin{itemize}
+% 		\item the most adequate software \alert{abstractions} supporting them
+% 		\item their engineering w.r.t. software \alert{technologies}
+% 		\item their reification as \alert{code}
+% 	\end{itemize}
+% 	\item we compose them together, to enable (more) complex behaviours
+% 	\item we discuss what we get, and what is missing
+% 	\item we discuss projects / theses concerning
+% 	\begin{itemize}
+% 		\item topics not fully explored in the course
+% 		\item open problems from the AI literature
+% 		\item lacking technologies from the current state of the art
+% 	\end{itemize}
+% \end{enumerate}
+
+% \end{frame}
+% %/////////
+
+% %===============================================================================
+% \section{Recall Fundamental Notions}
+% %===============================================================================
+
+% %/////////
+% \begin{frame}[c]{Disclaimer}
+% %
+% \begin{itemize}
+% 	\item We recall a number of notions about IS
+% 	%
+% 	\begin{itemize}
+% 		\item[eg] agents, goals, autonomy, intelligence, the environment, etc.
+% 	\end{itemize}
+
+% 	\item Actual definitions are provided by Prof. Omicini in his module
+
+% 	\item Here we just recall the nomenclature and provide insights
+% 	%
+% 	\begin{itemize}
+% 		\item following the purpose of explaining the rationale of our module
+% 	\end{itemize}
+% \end{itemize}
+% %
+% \end{frame}
+% %/////////
+
+% %/////////
+% \begin{frame}[c]{Agent}
+% %
+% \begin{block}{Insight}
+% 	Any entity capable of \alert{acting}\footnote{``acting'' = ``affecting the environment, and (possibly) the agents therein contained''}
+% 	%
+% 	\begin{itemize}
+% 		\item while being situated into some \alert{environment}
+% 		%
+% 		\begin{itemize}
+% 			\item which can be both \alert{perceived} and \alert{affected}
+% 		\end{itemize}
+
+% 		\item possibly, along with other agents
+% 		%
+% 		\begin{itemize}
+% 			\item with which \alert{interaction} is possible
+% 		\end{itemize}
+% 	\end{itemize}
+% \end{block}
+% %
+% \begin{exampleblock}{Examples of agents}
+% 	\begin{multicols}{2}
+% 		\begin{itemize}
+% 			\item human beings
+% 			\item OS processes
+% 			\item OS threads
+% 			\item logic solvers
+% 			\item robots
+% 			\item BDI agents
+% 		\end{itemize}
+% 	\end{multicols}
+% \end{exampleblock}
+% %
+% \end{frame}
+% %/////////
+
+% %/////////
+% \begin{frame}[c]{Goal}
+% %
+% \begin{block}{Insight}
+% 	A (possibly partial) description of the state of the world\footnote{``world'' $\approx$ ``the environment + other agents''} to be reached
+% 	%
+% 	\begin{itemize}
+% 		\item either by a single agent (\emph{individual} goal)
+% 		\item or by a multi-agent system (\emph{collective} goal)
+% 	\end{itemize}
+% \end{block}
+% %
+% \begin{exampleblock}{Examples of goals}
+% 	\begin{itemize}
+% 		\item vacuum robot $\rightarrow$ ``the floor should be clean''
+% 		\item autonomous car $\rightarrow$ ``reach destination X''
+% 		\item virtual personal assistant $\rightarrow$ ``reminder of meeting, 15 minutes before its start''
+% 	\end{itemize}
+% \end{exampleblock}
+% %
+% \end{frame}
+% %/////////
+
+% %/////////
+% \begin{frame}[c]{Autonomy (of Agents)}
+% %
+% \begin{block}{Insight}
+% 	Agents are \alert{autonomous} when they encapsulate (i.e. control) the criterion
+% 	%
+% 	\begin{itemize}
+% 		\item by which they select which goals to pursue
+% 		%
+% 		\begin{itemize}
+% 			\item (\emph{motivational} autonomy)
+% 		\end{itemize}
+% 		\item or by which they choose which action to do to while pursuing a goal
+% 		%
+% 		\begin{itemize}
+% 			\item (\emph{executive} autonomy)
+% 		\end{itemize}
+% 	\end{itemize}
+% \end{block}
+% %
+% \begin{exampleblock}{Examples of autonomous agents}
+% 	\begin{itemize}
+% 		\item human agents are autonomous
+% 		\item software agents may be more or less autonomous
+% 		%
+% 		\begin{itemize}
+% 			\item depending on how they have been programmed
+% 		\end{itemize}
+% 	\end{itemize}
+% \end{exampleblock}
+% %
+% \end{frame}
+% %/////////
+
+% %/////////
+% \begin{frame}[c,allowframebreaks]{Intelligence (of Agents)}
+% %
+% \begin{block}{Insight}
+% 	Agents are \alert{intelligent} when they have \alert{cognitive capabilities}, and they know when/how to use them to pursue their goal(s)
+% \end{block}
+% %
+% \begin{exampleblock}{Examples of \textbf{cognitive capabilities}}\small
+% 	\begin{itemize}
+% 		\item \alert{perceiving} stimuli and \alert{recognise} abstractions on top of them
+% 		\item \alert{representing knowledge} (e.g. perceptions, abstractions, goals, actions, etc) and \alert{memorising} it for later re-use
+% 		\item \alert{learning} from the experience (i.e. generalise the gathered knowledge)
+% 		\item \alert{planning} courses of action to pursue goals
+% 		\item \alert{reasoning} about knowledge (to \emph{deduce} implicit knowledge, to \emph{induce} new knowledge, to \emph{abduce} hypotheses)
+% 		\item \alert{interact} with other agents to exchange information (goals, knowledge, plans)
+% 		\item etc.
+% 	\end{itemize}
+% \end{exampleblock}
+% %
+% \begin{exampleblock}{Examples of intelligent agents}
+% 	\begin{itemize}
+% 		\item human agents behave intelligently (most of the times)
+% 		\item software agents require cognitive capabilities, to behave intelligently
+% 		%
+% 		\begin{itemize}
+% 			\item plus some criterion to decide when and how to use them
+% 		\end{itemize}
+% 	\end{itemize}
+% \end{exampleblock}
+% %
+% \framebreak
+% %
+% \begin{alertblock}{Cognitive capabilities $\nRightarrow$ Intelligence}
+% 	Cognitive behaviours may or may not be considered as intelligent depending on the \alert{context} they are applied into, and on the \alert{observer}
+% \end{alertblock}
+% %
+% \begin{exampleblock}{Examples of intelligent agents}
+% 	\begin{itemize}
+% 		\item agent stepping through the window at ground floor
+% 		\item agent stepping through the window at $N^{th}$ floor
+% 	\end{itemize}
+% \end{exampleblock}
+% %
+% \end{frame}
+% %/////////
+
+% %/////////
+% \begin{frame}[c]{Environment}
+% %
+% \begin{block}{Insight}
+% 	The space where agents live and (inter)act. A.k.a. what is \emph{external} w.r.t. agents.
+% 	%
+% 	\begin{itemize}
+% 		\item enables and constraints agents' \alert{interaction}, \alert{perception}, and \alert{actuation}
+% 	\end{itemize}
+% \end{block}
+% %
+% \begin{exampleblock}{Examples of environments}
+% 	\begin{itemize}
+% 		\item human beings $\rightarrow$ physical world / social media / \ldots
+% 		\item Roomba $\rightarrow$ a house and its floor
+% 		\item chat bot $\rightarrow$ chat groups
+% 		\item autonomous car $\rightarrow$ the road
+% 		\item OS process/thread $\rightarrow$ file system + network + environment variables + I/O
+% 	\end{itemize}
+% \end{exampleblock}
+% %
+% \end{frame}
+% %/////////
+
+% %/////////
+% \begin{frame}[c]{Perception}
+% %
+% \begin{block}{Insight}
+% 	The operation by which agents gather information from the environment
+% 	%
+% 	\begin{itemize}
+% 		\item agents may then \alert{represent}, \alert{memorise}, and \alert{process} perceived information
+% 	\end{itemize}
+% \end{block}
+% %
+% \begin{exampleblock}{Examples of perception}
+% 	\begin{itemize}
+% 		\item human beings $\rightarrow$ 5 sense + introspection + proprioception
+% 		\item robots $\rightarrow$ input sensors providing raw measurements (cameras, \textsc{Lisar}s, etc.)
+% 		\item chat bot $\rightarrow$ chat history
+% 		\item OS processes/threads $\rightarrow$ stdin + other input files, environment variables, system clock, network channels, serial ports, etc.
+% 	\end{itemize}
+% \end{exampleblock}
+% %
+% \end{frame}
+% %/////////
+
+% %/////////
+% \begin{frame}[c]{Actuation}
+% %
+% \begin{block}{Insight}
+% 	The operation by which agents affect the environment
+% 	%
+% 	\begin{itemize}
+% 		\item agents may be provided with number of elementary actions
+% 		%
+% 		\begin{itemize}
+% 			\item or be capable of learning them along the way
+% 		\end{itemize}
+% 		\item to be combined in infinitely many ways
+% 	\end{itemize}
+% \end{block}
+% %
+% \begin{exampleblock}{Examples of actuation}
+% 	\begin{itemize}
+% 		\item human beings $\rightarrow$ hands, feet, virtually any limb of our bodies, speech
+% 		\item robots $\rightarrow$ actuators (wheels, arms, leds, etc.)
+% 		\item chat bot $\rightarrow$ sending messages
+% 		\item OS processes/threads $\rightarrow$ stdout + other output files, environment variables, network channels, serial ports, etc.
+% 	\end{itemize}
+% \end{exampleblock}
+% %
+% \end{frame}
+% %/////////
+
+% %/////////
+% \begin{frame}[c]{Interaction}
+% %
+% \begin{block}{Insight}
+% 	Where agents affect (and are affected by) each others
+% 	%
+% 	\begin{itemize}
+% 		\item may involve both perception and actuation
+% 		\item does not strictly imply \emph{communication}
+% 	\end{itemize}
+% \end{block}
+% %
+% \begin{exampleblock}{Examples of actuation}
+% 	\begin{itemize}
+% 		\item human beings $\rightarrow$ speech, mails, chats, non-verbal communication, etc.
+% 		\item robots $\rightarrow$ stigmergy, mutual perception, \ldots
+% 		\item chat bot $\rightarrow$ messages with buttons
+% 		\item OS processes/threads $\rightarrow$ message passing, tuple spaces/centres, etc.
+% 	\end{itemize}
+% \end{exampleblock}
+% %
+% \end{frame}
+% %/////////
+
+%===============================================================================
+\section{About Module 2}
 %===============================================================================
 
 %/////////
-\begin{frame}[c,allowframebreaks]{Workflow}
-
-\begin{block}{We address the engineering of \textbf{intelligent systems} (IS)}
-	here intended as
-	%
-	\begin{itemize}
-		\item systems composed by one or many \emph{autonomous} and \emph{intelligent} \alert{agents}
-		\item situated into some \alert{environment}
-		\item pursuing either individual or collective \alert{goals}
-	\end{itemize}
-\end{block}
-
-\framebreak
-
-``Divide et impera'' approach:
-%
+\begin{frame}[c]{History}
+The module used to focus on practical counterparts of the theoretical notions introduced in module 1, 
+by providing exercises on
 \begin{enumerate}
-	\item we elicit most fundamental mechanisms of IS
-	\item we analyse each aspect individually, discussing:
+	\item computational logic and logic programming,
+	\item BDI agents and how to program them in Jason,
+	\item symbolic planning and \textsc{STRIPS},
+	\item miscellaneous topics (e.g. argumentation, explainable AI, etc.)
+\end{enumerate}
+\ldots \alert{in 15h of lectures}
+\end{frame}
+%/////////
+
+%/////////
+\begin{frame}[c]{The future}
+Today we are migrating towards a big \alert{re-design} of the course, due to the activation of the new \alert{AI curriculum} of the ISI master programme
+\begin{itemize}
+	\item the course as a whole will be devoted to \alert{``Intelligent Agents''}
 	\begin{itemize}
-		\item the most adequate software \alert{abstractions} supporting them
-		\item their engineering w.r.t. software \alert{technologies}
-		\item their reification as \alert{code}
+		\item there including \alert{agentic} (LLM-based) approaches
 	\end{itemize}
-	\item we compose them together, to enable (more) complex behaviours
-	\item we discuss what we get, and what is missing
-	\item we discuss projects / theses concerning
+	\item module 2 in particular will focus on the engineering of LLM-based agents and technologies
 	\begin{itemize}
-		\item topics not fully explored in the course
-		\item open problems from the AI literature
-		\item lacking technologies from the current state of the art
+		\item material is in production
+	\end{itemize}
+\end{itemize}
+\end{frame}
+%/////////
+
+%/////////
+\begin{frame}[c]{The present}
+This year, the module will cover:
+\begin{enumerate}
+	\item BDI agents and how to program them in Jason,
+	\begin{itemize}
+		\item as an example of ``classical'' agent-oriented programming
+		\begin{itemize}
+			\item (opposed to LLM-based approaches)
+		\end{itemize}
+	\end{itemize}
+	\item symbolic planning and \textsc{STRIPS},
+	\begin{itemize}
+		\item as an example of ``exact'' planning
+		\begin{itemize}
+			\item  (opposed to LLMs' \emph{intuitive} reasoning)
+		\end{itemize}
+	\end{itemize}
+	\item fundamentals of LLM-based agent technologies (API, tools, structured outputs, etc.)
+	\begin{itemize}
+		\item here I need your feedback to avoid overlapping other courses and produce good material
 	\end{itemize}
 \end{enumerate}
-
+\ldots \alert{still fitting 15h of lectures}
 \end{frame}
 %/////////
 
-%===============================================================================
-\section{Recall Fundamental Notions}
-%===============================================================================
+% %/////////
+% \begin{frame}[c,allowframebreaks]{Fundamental Mechanisms of Intelligent Systems}
+% %
+% \begin{enumerate}
+% 	\item Knowledge representation
+% 	%
+% 	\begin{itemize}
+% 		\item How is information represented to favour memorisation and processing
+% 	\end{itemize}
+% 	%
+% 	\item Inference
+% 	%
+% 	\begin{itemize}
+% 		\item How novel/explicit knowledge is attained from prior/implicit knowledge
+% 	\end{itemize}
+% 	%
+% 	\item Perception / actuation
+% 	%
+% 	\begin{itemize}
+% 		\item How information exchange with the environment occurs
+% 	\end{itemize}
+% 	%
+% 	\item Planning
+% 	%
+% 	\begin{itemize}
+% 		\item How courses of actions (directed towards some goal) are computed
+% 	\end{itemize}
+% 	%
+% 	\item Learning
+% 	%
+% 	\begin{itemize}
+% 		\item How experience is transformed into knowledge
+% 	\end{itemize}
+% 	%
+% 	\item Deliberation
+% 	%
+% 	\begin{itemize}
+% 		\item Where all such aspects are tied together
+% 	\end{itemize}
+% 	%
+% 	\item Environment and artefacts
+% 	%
+% 	\begin{itemize}
+% 		\item Where (inter)actions are coordinated
+% 	\end{itemize}
+% 	%
+% \end{enumerate}
+% %
+% \framebreak
+% %
+% \begin{block}{Special guest: \textbf{Explanation}}
+% 	How knoweldge is \alert{transferred} from an agent to another
+% 	%
+% 	\begin{itemize}
+% 		\item software to human agent $\leftarrow$ symbolic knowledge \alert{extraction}
+% 		\item human to software agent $\leftarrow$ symbolic knowledge \alert{injection}
+% 	\end{itemize}
+% \end{block}
+% %
+% \begin{block}{Special guest: \textbf{Argumentation}}
+% 	Letting agents reach shared agreements by \alert{arguing}
+% 	%
+% 	\begin{itemize}
+% 		\item reason about how arguments attack each other
+% 		\item reason about when to present an argument to the opponent(s)
+% 	\end{itemize}
+% \end{block}
+% %
+% \end{frame}
+% %/////////
 
-%/////////
-\begin{frame}[c]{Disclaimer}
-%
-\begin{itemize}
-	\item We recall a number of notions about IS
-	%
-	\begin{itemize}
-		\item[eg] agents, goals, autonomy, intelligence, the environment, etc.
-	\end{itemize}
+% %/////////
+% \begin{frame}[c,allowframebreaks]{Orthogonal topics}
 
-	\item Actual definitions are provided by Prof. Omicini in his module
+% Topics necessary to understand two or more mechanisms:
 
-	\item Here we just recall the nomenclature and provide insights
-	%
-	\begin{itemize}
-		\item following the purpose of explaining the rationale of our module
-	\end{itemize}
-\end{itemize}
-%
-\end{frame}
-%/////////
+% \begin{block}{Data science (a.k.a. machine learning, a.k.a. data mining)}
+% 	The use of statistics and algorithms to extract knowledge out of data
+% 	%
+% 	\begin{itemize}
+% 		\item necessary or useful for:
+% 		\vspace{-10pt}
+% 		\begin{multicols}{2}
+% 			\begin{itemize}
+% 				\item perception
+% 				\item learning
+% 				\item inference
+% 				\item processing
+% 			\end{itemize}
+% 		\end{multicols}
+% 	\end{itemize}
+% \end{block}
+% %
+% \begin{itemize}
+% 	\item we assume students already have a background on this topic
+% 	%
+% 	\begin{itemize}
+% 		\item yet, most relevant aspects may be recalled when needed
+% 	\end{itemize}
+% \end{itemize}
 
-%/////////
-\begin{frame}[c]{Agent}
-%
-\begin{block}{Insight}
-	Any entity capable of \alert{acting}\footnote{``acting'' = ``affecting the environment, and (possibly) the agents therein contained''}
-	%
-	\begin{itemize}
-		\item while being situated into some \alert{environment}
-		%
-		\begin{itemize}
-			\item which can be both \alert{perceived} and \alert{affected}
-		\end{itemize}
+% \begin{block}{Computational Logic}
+% 	The use of logic to \emph{perform} or \emph{reason about} computation
+% 	%
+% 	\begin{itemize}
+% 		\item necessary or useful for:
+% 		\vspace{-10pt}
+% 		\begin{multicols}{2}
+% 			\begin{itemize}
+% 				\item knowledge representation
+% 				\item reasoning
+% 				\item planning
+% 				\item learning
+% 				\item perception
+% 				\item deliberation
+% 			\end{itemize}
+% 		\end{multicols}
+% 	\end{itemize}
+% \end{block}
+% %
+% \begin{itemize}
+% 	\item we provide background on this topic, along the course
+% \end{itemize}
 
-		\item possibly, along with other agents
-		%
-		\begin{itemize}
-			\item with which \alert{interaction} is possible
-		\end{itemize}
-	\end{itemize}
-\end{block}
-%
-\begin{exampleblock}{Examples of agents}
-	\begin{multicols}{2}
-		\begin{itemize}
-			\item human beings
-			\item OS processes
-			\item OS threads
-			\item logic solvers
-			\item robots
-			\item BDI agents
-		\end{itemize}
-	\end{multicols}
-\end{exampleblock}
-%
-\end{frame}
-%/////////
-
-%/////////
-\begin{frame}[c]{Goal}
-%
-\begin{block}{Insight}
-	A (possibly partial) description of the state of the world\footnote{``world'' $\approx$ ``the environment + other agents''} to be reached
-	%
-	\begin{itemize}
-		\item either by a single agent (\emph{individual} goal)
-		\item or by a multi-agent system (\emph{collective} goal)
-	\end{itemize}
-\end{block}
-%
-\begin{exampleblock}{Examples of goals}
-	\begin{itemize}
-		\item vacuum robot $\rightarrow$ ``the floor should be clean''
-		\item autonomous car $\rightarrow$ ``reach destination X''
-		\item virtual personal assistant $\rightarrow$ ``reminder of meeting, 15 minutes before its start''
-	\end{itemize}
-\end{exampleblock}
-%
-\end{frame}
-%/////////
-
-%/////////
-\begin{frame}[c]{Autonomy (of Agents)}
-%
-\begin{block}{Insight}
-	Agents are \alert{autonomous} when they encapsulate (i.e. control) the criterion
-	%
-	\begin{itemize}
-		\item by which they select which goals to pursue
-		%
-		\begin{itemize}
-			\item (\emph{motivational} autonomy)
-		\end{itemize}
-		\item or by which they choose which action to do to while pursuing a goal
-		%
-		\begin{itemize}
-			\item (\emph{executive} autonomy)
-		\end{itemize}
-	\end{itemize}
-\end{block}
-%
-\begin{exampleblock}{Examples of autonomous agents}
-	\begin{itemize}
-		\item human agents are autonomous
-		\item software agents may be more or less autonomous
-		%
-		\begin{itemize}
-			\item depending on how they have been programmed
-		\end{itemize}
-	\end{itemize}
-\end{exampleblock}
-%
-\end{frame}
-%/////////
-
-%/////////
-\begin{frame}[c,allowframebreaks]{Intelligence (of Agents)}
-%
-\begin{block}{Insight}
-	Agents are \alert{intelligent} when they have \alert{cognitive capabilities}, and they know when/how to use them to pursue their goal(s)
-\end{block}
-%
-\begin{exampleblock}{Examples of \textbf{cognitive capabilities}}\small
-	\begin{itemize}
-		\item \alert{perceiving} stimuli and \alert{recognise} abstractions on top of them
-		\item \alert{representing knowledge} (e.g. perceptions, abstractions, goals, actions, etc) and \alert{memorising} it for later re-use
-		\item \alert{learning} from the experience (i.e. generalise the gathered knowledge)
-		\item \alert{planning} courses of action to pursue goals
-		\item \alert{reasoning} about knowledge (to \emph{deduce} implicit knowledge, to \emph{induce} new knowledge, to \emph{abduce} hypotheses)
-		\item \alert{interact} with other agents to exchange information (goals, knowledge, plans)
-		\item etc.
-	\end{itemize}
-\end{exampleblock}
-%
-\begin{exampleblock}{Examples of intelligent agents}
-	\begin{itemize}
-		\item human agents behave intelligently (most of the times)
-		\item software agents require cognitive capabilities, to behave intelligently
-		%
-		\begin{itemize}
-			\item plus some criterion to decide when and how to use them
-		\end{itemize}
-	\end{itemize}
-\end{exampleblock}
-%
-\framebreak
-%
-\begin{alertblock}{Cognitive capabilities $\nRightarrow$ Intelligence}
-	Cognitive behaviours may or may not be considered as intelligent depending on the \alert{context} they are applied into, and on the \alert{observer}
-\end{alertblock}
-%
-\begin{exampleblock}{Examples of intelligent agents}
-	\begin{itemize}
-		\item agent stepping through the window at ground floor
-		\item agent stepping through the window at $N^{th}$ floor
-	\end{itemize}
-\end{exampleblock}
-%
-\end{frame}
-%/////////
-
-%/////////
-\begin{frame}[c]{Environment}
-%
-\begin{block}{Insight}
-	The space where agents live and (inter)act. A.k.a. what is \emph{external} w.r.t. agents.
-	%
-	\begin{itemize}
-		\item enables and constraints agents' \alert{interaction}, \alert{perception}, and \alert{actuation}
-	\end{itemize}
-\end{block}
-%
-\begin{exampleblock}{Examples of environments}
-	\begin{itemize}
-		\item human beings $\rightarrow$ physical world / social media / \ldots
-		\item Roomba $\rightarrow$ a house and its floor
-		\item chat bot $\rightarrow$ chat groups
-		\item autonomous car $\rightarrow$ the road
-		\item OS process/thread $\rightarrow$ file system + network + environment variables + I/O
-	\end{itemize}
-\end{exampleblock}
-%
-\end{frame}
-%/////////
-
-%/////////
-\begin{frame}[c]{Perception}
-%
-\begin{block}{Insight}
-	The operation by which agents gather information from the environment
-	%
-	\begin{itemize}
-		\item agents may then \alert{represent}, \alert{memorise}, and \alert{process} perceived information
-	\end{itemize}
-\end{block}
-%
-\begin{exampleblock}{Examples of perception}
-	\begin{itemize}
-		\item human beings $\rightarrow$ 5 sense + introspection + proprioception
-		\item robots $\rightarrow$ input sensors providing raw measurements (cameras, \textsc{Lisar}s, etc.)
-		\item chat bot $\rightarrow$ chat history
-		\item OS processes/threads $\rightarrow$ stdin + other input files, environment variables, system clock, network channels, serial ports, etc.
-	\end{itemize}
-\end{exampleblock}
-%
-\end{frame}
-%/////////
-
-%/////////
-\begin{frame}[c]{Actuation}
-%
-\begin{block}{Insight}
-	The operation by which agents affect the environment
-	%
-	\begin{itemize}
-		\item agents may be provided with number of elementary actions
-		%
-		\begin{itemize}
-			\item or be capable of learning them along the way
-		\end{itemize}
-		\item to be combined in infinitely many ways
-	\end{itemize}
-\end{block}
-%
-\begin{exampleblock}{Examples of actuation}
-	\begin{itemize}
-		\item human beings $\rightarrow$ hands, feet, virtually any limb of our bodies, speech
-		\item robots $\rightarrow$ actuators (wheels, arms, leds, etc.)
-		\item chat bot $\rightarrow$ sending messages
-		\item OS processes/threads $\rightarrow$ stdout + other output files, environment variables, network channels, serial ports, etc.
-	\end{itemize}
-\end{exampleblock}
-%
-\end{frame}
-%/////////
-
-%/////////
-\begin{frame}[c]{Interaction}
-%
-\begin{block}{Insight}
-	Where agents affect (and are affected by) each others
-	%
-	\begin{itemize}
-		\item may involve both perception and actuation
-		\item does not strictly imply \emph{communication}
-	\end{itemize}
-\end{block}
-%
-\begin{exampleblock}{Examples of actuation}
-	\begin{itemize}
-		\item human beings $\rightarrow$ speech, mails, chats, non-verbal communication, etc.
-		\item robots $\rightarrow$ stigmergy, mutual perception, \ldots
-		\item chat bot $\rightarrow$ messages with buttons
-		\item OS processes/threads $\rightarrow$ message passing, tuple spaces/centres, etc.
-	\end{itemize}
-\end{exampleblock}
-%
-\end{frame}
-%/////////
-
-%===============================================================================
-\section{About the Lab}
-%===============================================================================
-
-%/////////
-\begin{frame}[c,allowframebreaks]{Fundamental Mechanisms of Intelligent Systems}
-%
-\begin{enumerate}
-	\item Knowledge representation
-	%
-	\begin{itemize}
-		\item How is information represented to favour memorisation and processing
-	\end{itemize}
-	%
-	\item Inference
-	%
-	\begin{itemize}
-		\item How novel/explicit knowledge is attained from prior/implicit knowledge
-	\end{itemize}
-	%
-	\item Perception / actuation
-	%
-	\begin{itemize}
-		\item How information exchange with the environment occurs
-	\end{itemize}
-	%
-	\item Planning
-	%
-	\begin{itemize}
-		\item How courses of actions (directed towards some goal) are computed
-	\end{itemize}
-	%
-	\item Learning
-	%
-	\begin{itemize}
-		\item How experience is transformed into knowledge
-	\end{itemize}
-	%
-	\item Deliberation
-	%
-	\begin{itemize}
-		\item Where all such aspects are tied together
-	\end{itemize}
-	%
-	\item Environment and artefacts
-	%
-	\begin{itemize}
-		\item Where (inter)actions are coordinated
-	\end{itemize}
-	%
-\end{enumerate}
-%
-\framebreak
-%
-\begin{block}{Special guest: \textbf{Explanation}}
-	How knoweldge is \alert{transferred} from an agent to another
-	%
-	\begin{itemize}
-		\item software to human agent $\leftarrow$ symbolic knowledge \alert{extraction}
-		\item human to software agent $\leftarrow$ symbolic knowledge \alert{injection}
-	\end{itemize}
-\end{block}
-%
-\begin{block}{Special guest: \textbf{Argumentation}}
-	Letting agents reach shared agreements by \alert{arguing}
-	%
-	\begin{itemize}
-		\item reason about how arguments attack each other
-		\item reason about when to present an argument to the opponent(s)
-	\end{itemize}
-\end{block}
-%
-\end{frame}
-%/////////
-
-%/////////
-\begin{frame}[c,allowframebreaks]{Orthogonal topics}
-
-Topics necessary to understand two or more mechanisms:
-
-\begin{block}{Data science (a.k.a. machine learning, a.k.a. data mining)}
-	The use of statistics and algorithms to extract knowledge out of data
-	%
-	\begin{itemize}
-		\item necessary or useful for:
-		\vspace{-10pt}
-		\begin{multicols}{2}
-			\begin{itemize}
-				\item perception
-				\item learning
-				\item inference
-				\item processing
-			\end{itemize}
-		\end{multicols}
-	\end{itemize}
-\end{block}
-%
-\begin{itemize}
-	\item we assume students already have a background on this topic
-	%
-	\begin{itemize}
-		\item yet, most relevant aspects may be recalled when needed
-	\end{itemize}
-\end{itemize}
-
-\begin{block}{Computational Logic}
-	The use of logic to \emph{perform} or \emph{reason about} computation
-	%
-	\begin{itemize}
-		\item necessary or useful for:
-		\vspace{-10pt}
-		\begin{multicols}{2}
-			\begin{itemize}
-				\item knowledge representation
-				\item reasoning
-				\item planning
-				\item learning
-				\item perception
-				\item deliberation
-			\end{itemize}
-		\end{multicols}
-	\end{itemize}
-\end{block}
-%
-\begin{itemize}
-	\item we provide background on this topic, along the course
-\end{itemize}
-
-\end{frame}
-%/////////
+% \end{frame}
+% %/////////
 
 \subsection{Required Technologies and Skills}
 
 \begin{frame}[c,allowframebreaks]{Required Technologies and Skills}
 
-\begin{block}{Legend}
-	\begin{multicols}{2}
-		\begin{itemize}
-			\item[$\checkmark$] we assume you know this topic
-			\item[$\rightarrow$] we teach this topic
-		\end{itemize}
-	\end{multicols}
-\end{block}
+% \begin{block}{Legend}
+% 	\begin{multicols}{2}
+% 		\begin{itemize}
+% 			\item[$\checkmark$] we assume you know this topic
+% 			\item[$\rightarrow$] we teach this topic
+% 		\end{itemize}
+% 	\end{multicols}
+% \end{block}
 
-\framebreak
+% \framebreak
 
 \begin{alertblock}{Required}
 	\begin{itemize}
@@ -743,7 +800,6 @@ Topics necessary to understand two or more mechanisms:
             \begin{enumerate}
 				\item Select \& study a paper form the literature
 				\item Design your implementation for the proposed contribution
-				\item Write \alert{automated} tests
 				\item Prototype an implementation
 				\item Pack / deploy for a demo
 			\end{enumerate}
@@ -758,11 +814,11 @@ Topics necessary to understand two or more mechanisms:
     \end{block}
 
     \begin{block}{Research \courseAcronym{} Project}
-        Help us extending some research some research line of ours, by developing some research idea into prototype+empirical evaluation, 
+        Develop some research idea into prototype+empirical evaluation, 
 		and possibly a paper
         %
         \begin{itemize}
-            \item[eg] TuSoW\ccite{tusow-icccn2019}, LPaaS\ccite{lpaas-bdcc2}, tuProlog\ccite{2pkt-swx16}, JaKtA\ccite{Baiardi2024}
+            \item[eg] TuSoW\ccite{tusow-icccn2019}, tuProlog\ccite{2pkt-swx16}, JaKtA\ccite{Baiardi2024}
             \item Workflow:
             %
             \begin{enumerate}
@@ -776,8 +832,8 @@ Topics necessary to understand two or more mechanisms:
             %
             \begin{itemize}
                 \item design and implementation must be expert-level
-                \item testing, and continuos integration are mandatory
-                \item you will be considered part of development team
+                \item good software development practices (testing, CI/CD) are mandatory
+                % \item you will be considered part of development team
                 \item you will be part of the author list of any subsequent paper
             \end{itemize}
         \end{itemize}
